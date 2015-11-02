@@ -1,7 +1,9 @@
 <?php
     include 'config.php';
     $usuario = $_POST['user'];
-    $clave = $_POST['pass'];
+    $clave = md5($_POST['pass']);
+    //echo md5('la contraseña');
+    //die;
    // echo $usuario . '  ' . $clave ;
     //$conexion = new mysqli('localhost', 'login_atilio', 'yo06yo12','login');
    // print_r($conexion);
