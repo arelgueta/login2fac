@@ -1,11 +1,20 @@
 <?php
 
 //session_start();
-$host='localhost';
-$userio='atilio';
-$passwd='yo06yo12';
-$db='login';
+$dbParams = array(
+    'host' => 'localhost',
+    'usuario' => 'login_atilio',
+    'passwd' => 'yo06yo12',
+    'db' => 'login',
+);
 
-$conexion = new mysqli($host, $userio, $passwd, $db);
-
-?>
+function conectarDB($dbParams) {
+    $conexion = new mysqli($dbParams['host'], $dbParams['usuario'], $dbParams['passwd'], $dbParams['db']);
+    return $conexion;
+}
+function imprimir($variable)
+{
+    echo'<pre>';
+    print_r($variable);
+    echo '</pre>';
+}
