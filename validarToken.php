@@ -4,22 +4,23 @@ $usuario = $_POST['usuario'];
 //echo $usuario;
 //echo $tokenIn;
 //Conexion a DB
-include 'config.php';
-$conection=conectarDB($dbParams);
+ include 'config.php';
+ $conection=conectarDB($dbParams);
 $resultado = $conection->query("SELECT token FROM usuario WHERE user='$usuario'");
 //print_r($resultado) ;
 if ($resultado->num_rows > 0) {
     // output data of each row
     while($row = $resultado->fetch_assoc()) {
-        echo "Secreto: " . $row["token"]. "<br>";
+        //echo "Secreto: " . $row["token"]. "<br>";
+        $secret=$row["token"];
     }
 }
-//Verificación del Código
+ //Verificación del Código
 require_once 'GoogleAuthenticator.php';
 
 $ga = new PHPGangsta_GoogleAuthenticator();
 
-$secret = $ga->createSecret();
+//$secret = $ga->createSecret();
 echo "Secret is: ".$secret."\n\n";
 
 $qrCodeUrl = $ga->getQRCodeGoogleUrl('Blog', $secret);

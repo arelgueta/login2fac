@@ -31,7 +31,7 @@ class PHPGangsta_GoogleAuthenticator
         }
         return $secret;
     }
-    
+
     /**
      * Calculate the code, with given secret and point in time
      *
@@ -65,6 +65,7 @@ class PHPGangsta_GoogleAuthenticator
         $modulo = pow(10, $this->_codeLength);
         return str_pad($value % $modulo, $this->_codeLength, '0', STR_PAD_LEFT);
     }
+
     /**
      * Get QR-Code URL for image, from google charts
      *
