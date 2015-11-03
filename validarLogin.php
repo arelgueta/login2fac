@@ -2,7 +2,8 @@
     include 'config.php';
     $usuario = $_POST['user'];
     $clave = sha1($_POST['pass']);
-    //echo sha1('aca va la pass');
+    //echo sha1('yo06yo12');
+    //print_r($clave);
     //die;
    // echo $usuario . '  ' . $clave ;
     //$conexion = new mysqli('localhost', 'login_atilio', 'yo06yo12','login');
@@ -17,7 +18,8 @@
     }
     else
     {
-        header('Location: formToken.php');
-    }
-    
+       //session_start();
+       //$_SESSION['usuario']=$usuario;
+        header('Location: formToken.php?usuario='.$usuario);
+    } 
 ?>

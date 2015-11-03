@@ -1,12 +1,14 @@
 <?php
-print_r($_POST);
+$token = $_POST['token'] ;
+echo $token;
+
 /*
- * require_once 'GoogleAuthenticator.php';
+require_once 'GoogleAuthenticator.php';
 
 $ga = new PHPGangsta_GoogleAuthenticator();
 
-//$secret = $ga->createSecret();
-//echo "Secret is: ".$secret."\n\n";
+$secret = $ga->createSecret();
+echo "Secret is: ".$secret."\n\n";
 
 $qrCodeUrl = $ga->getQRCodeGoogleUrl('Blog', $secret);
 echo "Google Charts URL for the QR-Code: ".$qrCodeUrl."\n\n";
