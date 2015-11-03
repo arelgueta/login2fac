@@ -14,6 +14,8 @@
         <p>Verifique el Token de su móvil por favor</p>
         <form action="validarToken.php"method="POST">
             Ingrese Token: <input name="token" type="text" placeholder="TOKEN" />
+            <input name="usuario"  type="hidden" value="<?php echo $user;?>" />
+            <input name="enviar" type="submit" value="ENVIAR" />
         </form>
     </body>
 </html>

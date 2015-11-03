@@ -1,6 +1,9 @@
 <?php
 $token = $_POST['token'] ;
+$usuario = $_POST['usuario'];
+echo $usuario;
 echo $token;
+
 
 /*
 require_once 'GoogleAuthenticator.php';
