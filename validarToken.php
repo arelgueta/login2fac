@@ -1,11 +1,20 @@
 <?php
-$token = $_POST['token'] ;
+$tokenIn = $_POST['token'] ;
 $usuario = $_POST['usuario'];
-echo $usuario;
-echo $token;
-
-
-/*
+//echo $usuario;
+//echo $tokenIn;
+//Conexion a DB
+include 'config.php';
+$conection=conectarDB($dbParams);
+$resultado = $conection->query("SELECT token FROM usuario WHERE user='$usuario'");
+//print_r($resultado) ;
+if ($resultado->num_rows > 0) {
+    // output data of each row
+    while($row = $resultado->fetch_assoc()) {
+        echo "Secreto: " . $row["token"]. "<br>";
+    }
+}
+//Verificación del Código
 require_once 'GoogleAuthenticator.php';
 
 $ga = new PHPGangsta_GoogleAuthenticator();
@@ -26,4 +35,3 @@ if ($checkResult) {
 } else {
     echo 'FAILED';
 }
- */

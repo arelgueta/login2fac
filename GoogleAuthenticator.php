@@ -20,7 +20,7 @@ class PHPGangsta_GoogleAuthenticator
      * @param int $secretLength
      * @return string
      */
-  /*  public function createSecret($secretLength = 16)
+    public function createSecret($secretLength = 16)
     {
         $validChars = $this->_getBase32LookupTable();
         unset($validChars[32]);
@@ -31,7 +31,7 @@ class PHPGangsta_GoogleAuthenticator
         }
         return $secret;
     }
-    */
+    
     /**
      * Calculate the code, with given secret and point in time
      *
@@ -39,7 +39,7 @@ class PHPGangsta_GoogleAuthenticator
      * @param int|null $timeSlice
      * @return string
      */
-  /*  public function getCode($secret, $timeSlice = null)
+    public function getCode($secret, $timeSlice = null)
     {
         if ($timeSlice === null) {
             $timeSlice = floor(time() / 30);
@@ -65,7 +65,6 @@ class PHPGangsta_GoogleAuthenticator
         $modulo = pow(10, $this->_codeLength);
         return str_pad($value % $modulo, $this->_codeLength, '0', STR_PAD_LEFT);
     }
-*/
     /**
      * Get QR-Code URL for image, from google charts
      *
