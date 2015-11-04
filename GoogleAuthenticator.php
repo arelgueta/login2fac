@@ -104,12 +104,12 @@ class PHPGangsta_GoogleAuthenticator
             $currentTimeSlice = floor(time() / 30);
         }
         
-        print_r(" " . $secret . "  ". $code . "  ");
+       // print_r(" " . $secret . "  ". $code . "  ");
         
         for ($i = -$discrepancy; $i <= $discrepancy; $i++) {
             $calculatedCode = $this->getCode($secret, $currentTimeSlice + $i);
             
-            echo $calculatedCode . '<br>';
+       //     echo $calculatedCode . '<br>';
             
             if ($calculatedCode == $code ) {
                 return true;
