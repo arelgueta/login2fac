@@ -12,6 +12,7 @@
 class PHPGangsta_GoogleAuthenticator
 {
     protected $_codeLength = 6;
+    
 
     /**
      * Create new secret.
@@ -108,7 +109,7 @@ class PHPGangsta_GoogleAuthenticator
         for ($i = -$discrepancy; $i <= $discrepancy; $i++) {
             $calculatedCode = $this->getCode($secret, $currentTimeSlice + $i);
             
-            print_r($calculatedCode);
+            echo $calculatedCode . '<br>';
             
             if ($calculatedCode == $code ) {
                 return true;

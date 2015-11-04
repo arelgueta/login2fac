@@ -29,6 +29,9 @@ $ga = new PHPGangsta_GoogleAuthenticator();
 //$qrCodeUrl = $ga->getQRCodeGoogleUrl($usuario, $secret);
 //echo "Google Charts URL for the QR-Code: ".$qrCodeUrl."\n\n";
 
+//echo "<img src='{$qrCodeUrl}'>";
+
+
 
 //$oneCode = $ga->getCode($secret);
 //echo "Checking Code '$oneCode' and Secret '$secret':\n";
