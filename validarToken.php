@@ -12,23 +12,26 @@ if ($resultado->num_rows > 0) {
     // output data of each row
     while($row = $resultado->fetch_assoc()) {
         //echo "Secreto: " . $row["token"]. "<br>";
-        $secret=$row["token"];
+        $passtoken=$row["token"];
     }
 }
  //Verificación del Código
+$secret=$passtoken;
+$oneCode=$tokenIn;
+
 require_once 'GoogleAuthenticator.php';
 
 $ga = new PHPGangsta_GoogleAuthenticator();
 
 //$secret = $ga->createSecret();
-echo "Secret is: ".$secret."\n\n";
+//echo "Secret is: ".$secret."\n\n";
 
-$qrCodeUrl = $ga->getQRCodeGoogleUrl('Blog', $secret);
-echo "Google Charts URL for the QR-Code: ".$qrCodeUrl."\n\n";
+//$qrCodeUrl = $ga->getQRCodeGoogleUrl($usuario, $secret);
+//echo "Google Charts URL for the QR-Code: ".$qrCodeUrl."\n\n";
 
 
-$oneCode = $ga->getCode($secret);
-echo "Checking Code '$oneCode' and Secret '$secret':\n";
+//$oneCode = $ga->getCode($secret);
+//echo "Checking Code '$oneCode' and Secret '$secret':\n";
 
 $checkResult = $ga->verifyCode($secret, $oneCode, 2);    // 2 = 2*30sec clock tolerance
 if ($checkResult) {

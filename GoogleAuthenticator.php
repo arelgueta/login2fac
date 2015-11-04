@@ -41,11 +41,15 @@ class PHPGangsta_GoogleAuthenticator
      */
     public function getCode($secret, $timeSlice = null)
     {
+        //print_r(" getCode:  secret-> " . $secret);
         if ($timeSlice === null) {
             $timeSlice = floor(time() / 30);
         }
 
         $secretkey = $this->_base32Decode($secret);
+        
+        //print_r("   secretkey:   " . $secretkey);
+        
 
         // Pack time into binary string
         $time = chr(0).chr(0).chr(0).chr(0).pack('N*', $timeSlice);
@@ -64,7 +68,9 @@ class PHPGangsta_GoogleAuthenticator
 
         $modulo = pow(10, $this->_codeLength);
         return str_pad($value % $modulo, $this->_codeLength, '0', STR_PAD_LEFT);
-    }
+        
+        }
+    
 
     /**
      * Get QR-Code URL for image, from google charts
@@ -96,9 +102,14 @@ class PHPGangsta_GoogleAuthenticator
         if ($currentTimeSlice === null) {
             $currentTimeSlice = floor(time() / 30);
         }
-
+        
+        print_r(" " . $secret . "  ". $code . "  ");
+        
         for ($i = -$discrepancy; $i <= $discrepancy; $i++) {
             $calculatedCode = $this->getCode($secret, $currentTimeSlice + $i);
+            
+            print_r($calculatedCode);
+            
             if ($calculatedCode == $code ) {
                 return true;
             }
