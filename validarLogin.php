@@ -1,5 +1,6 @@
 <?php
     include 'config.php';
+    include 'View.php';
     $usuario = $_POST['user'];
     $clave = sha1($_POST['pass']);
     //echo sha1('yo06yo12');
@@ -20,6 +21,9 @@
     {
        //session_start();
        //$_SESSION['usuario']=$usuario;
-        header('Location: formToken.php?usuario='.$usuario);
+        $vista = new View();
+        echo $vista->render('formToken.php', ['user'=>$usuario,'hola'=>33 ]);
+        
+        //header('Location: formToken.php?usuario='.$usuario);
     } 
 ?>
