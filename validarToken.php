@@ -38,7 +38,14 @@ $ga = new PHPGangsta_GoogleAuthenticator();
 
 $checkResult = $ga->verifyCode($secret, $oneCode, 2);    // 2 = 2*30sec clock tolerance
 if ($checkResult) {
-    echo 'OK';
-} else {
-    echo 'FAILED';
+   // echo 'OK';
+   // $vista = new View();
+   // echo $vista->render('formToken.php', ['user'=>$usuario,'hola'=>33 ]);
+  session_start();
+ $_SESSION['usuario']=$usuario;
+ header('Location: bienvenido.php');
+} 
+else 
+    {
+    echo 'TOKEN NO VÁLIDO';
 }
