@@ -3,7 +3,7 @@
     include 'View.php';
     $usuario = $_POST['user'];
     $clave = sha1($_POST['pass']);
-    //echo sha1('yo06yo12');
+    //echo sha1('123456');
     //print_r($clave);
     //die;
    // echo $usuario . '  ' . $clave ;
