@@ -12,5 +12,7 @@
             <br>
             <input name="enviar" type="submit" value="ENVIAR" />
         </form>
+        <br>
+        <a href="crearUsuario.php">Crear Nuevo Usuario</a>
     </body>
 </html>

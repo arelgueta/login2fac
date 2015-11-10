@@ -19,9 +19,12 @@ if (!$resultado)
 }
 else
 {
-    $utlimoID= mysqli_insert_id($coneccion);
+    $ultimoID = $coneccion->insert_id;
     header("Location: verUsuario.php?id=$ultimoID");
 }
+?>
+
+<br><br><br><a href="index.php">Ir al Login</a>
 
 
 

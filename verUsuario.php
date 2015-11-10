@@ -23,3 +23,6 @@ else
     echo "<p style='margin-left:20%'> <img src='{$qrCodeUrl}'></p>";
     
 }
+?>
+
+<br><br><br><a href="index.php">Ir al Login</a>

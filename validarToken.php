@@ -23,24 +23,22 @@ if ($resultado->num_rows > 0)
 {
     $fila = $resultado->fetch_assoc();
     $secreto = $fila["token"];
+    $ga = new PHPGangsta_GoogleAuthenticator();
+    $checkResult = $ga->verifyCode($secreto, $tokenIn, 3);    // 2 = 2*30sec clock tolerance
+    if ($checkResult)
+    {
+        session_start();
+        $_SESSION['validado'] = true;
+        header('Location: bienvenido.php');
+    }
+    else
+    {
+        echo 'TOKEN NO VALIDO <br>';
+    }
 }
 else
 {
     echo 'No existe el usuario <br>';
-    echo "<a href='formToken.php?user=$usuario'>Intentar Nuevamente </a>";
-    die;
 }
 
-$ga = new PHPGangsta_GoogleAuthenticator();
-$checkResult = $ga->verifyCode($secreto, $tokenIn, 3);    // 2 = 2*30sec clock tolerance
-if ($checkResult)
-{
-    session_start();
-    $_SESSION['validado'] = true;
-    header('Location: bienvenido.php');
-}
-else
-{
-    echo 'TOKEN NO VALIDO <br>';
-    echo "<a href='formToken.php?user=$usuario'>Intentar Nuevamente </a>";
-}
+echo "<br><br><a href='formToken.php?user=$usuario'>Intentar Nuevamente </a>";

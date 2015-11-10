@@ -1,5 +1,4 @@
 <?php
-
 include_once 'config.php';
 include_once 'funciones.php';
 include_once 'View.php';
@@ -21,6 +20,9 @@ else
     $_SESSION['paso1'] = true;
 //    $vista = new View();
 //    echo $vista->render('formToken.php', array('user' => $usuario));
-    header('Location: formToken.php?user='.$usuario);
+    header('Location: formToken.php?user=' . $usuario);
 }
+?>
+
+<br><br><br><a href="index.php">Ir al Login</a>
 
