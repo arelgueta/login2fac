@@ -49,9 +49,6 @@ class PHPGangsta_GoogleAuthenticator
 
         $secretkey = $this->_base32Decode($secret);
         
-        //print_r("   secretkey:   " . $secretkey);
-        
-
         // Pack time into binary string
         $time = chr(0).chr(0).chr(0).chr(0).pack('N*', $timeSlice);
         // Hash it with users secret key
@@ -104,12 +101,12 @@ class PHPGangsta_GoogleAuthenticator
             $currentTimeSlice = floor(time() / 30);
         }
         
-       // print_r(" " . $secret . "  ". $code . "  ");
+//       print_r("secreto: $secret - codigo: $code <br>");
         
         for ($i = -$discrepancy; $i <= $discrepancy; $i++) {
             $calculatedCode = $this->getCode($secret, $currentTimeSlice + $i);
             
-       //     echo $calculatedCode . '<br>';
+//            echo $calculatedCode . '<br>';
             
             if ($calculatedCode == $code ) {
                 return true;

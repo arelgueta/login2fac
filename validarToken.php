@@ -1,51 +1,46 @@
 <?php
-$tokenIn = $_POST['token'] ;
-$usuario = $_POST['usuario'];
-//echo $usuario;
-//echo $tokenIn;
-//Conexion a DB
- include 'config.php';
- $conection=conectarDB($dbParams);
-$resultado = $conection->query("SELECT token FROM usuario WHERE user='$usuario'");
-//print_r($resultado) ;
-if ($resultado->num_rows > 0) {
-    // output data of each row
-    while($row = $resultado->fetch_assoc()) {
-        //echo "Secreto: " . $row["token"]. "<br>";
-        $passtoken=$row["token"];
-    }
-}
- //Verificación del Código
-$secret=$passtoken;
-$oneCode=$tokenIn;
 
+session_start();
+if (!isset($_SESSION['paso1']))
+{
+    session_destroy();
+    header('Location: index.php');
+}
+
+
+include_once 'config.php';
+include_once 'funciones.php';
 require_once 'GoogleAuthenticator.php';
 
+$tokenIn = $_POST['token'];
+$usuario = $_POST['usuario'];
+
+//Conexion a DB
+$coneccion = conectarDB($parametrosGlobales['db']);
+$resultado = $coneccion->query("SELECT token FROM usuario WHERE user='$usuario'");
+
+if ($resultado->num_rows > 0)
+{
+    $fila = $resultado->fetch_assoc();
+    $secreto = $fila["token"];
+}
+else
+{
+    echo 'No existe el usuario <br>';
+    echo "<a href='formToken.php?user=$usuario'>Intentar Nuevamente </a>";
+    die;
+}
+
 $ga = new PHPGangsta_GoogleAuthenticator();
-
-//$secret = $ga->createSecret();
-//echo "Secret is: ".$secret."\n\n";
-
-//$qrCodeUrl = $ga->getQRCodeGoogleUrl($usuario, $secret);
-//echo "Google Charts URL for the QR-Code: ".$qrCodeUrl."\n\n";
-
-//echo "<img src='{$qrCodeUrl}'>";
-
-
-
-//$oneCode = $ga->getCode($secret);
-//echo "Checking Code '$oneCode' and Secret '$secret':\n";
-
-$checkResult = $ga->verifyCode($secret, $oneCode, 2);    // 2 = 2*30sec clock tolerance
-if ($checkResult) {
-   // echo 'OK';
-   // $vista = new View();
-   // echo $vista->render('formToken.php', ['user'=>$usuario,'hola'=>33 ]);
-  session_start();
- $_SESSION['usuario']=$usuario;
- header('Location: bienvenido.php');
-} 
-else 
-    {
-    echo 'TOKEN NO VÁLIDO';
+$checkResult = $ga->verifyCode($secreto, $tokenIn, 3);    // 2 = 2*30sec clock tolerance
+if ($checkResult)
+{
+    session_start();
+    $_SESSION['validado'] = true;
+    header('Location: bienvenido.php');
+}
+else
+{
+    echo 'TOKEN NO VALIDO <br>';
+    echo "<a href='formToken.php?user=$usuario'>Intentar Nuevamente </a>";
 }
