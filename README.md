@@ -1,13 +1,13 @@
 # login2fac
 login con factor de doble verificación
 
-#USO:
-en la carpeta /Data está la base de datos que contiene la tabla con usuarios para probar login2fac
-Una vez descargado se pueden utilizar los siguientes usuarios:
-usuario   / password  / clave secreta (para originar Tokens desde la api Google Authenticator)
-atilio  / yo06yo12 / OQB6ZZGYHCPSX4AK
-otro  / 123456 / OQB6ZZGYHCPSX5AK
-pepe / 123456 / OQB6ZZGYHCPSX5BU
-vuy / 123456 /  OQBYZZGYHGPSX5BM
-
+<p>#USO:</p>
+En la carpeta /Data está la base de datos con la tabla usuarios y la estructura utilizada para el funcionamiento de  login2fac.
+<p></p>
+<p></p>
+Al crear un usuario nuevo, deberá escanear el código QR asignado mediante la aplicación de Google Authenticator de su dispositivo móvil.
+<p></p>
+Finalmente, una vez accedido al login, se le solicitará el token de su dispositivo para el acceso definitivo a su espacio
+<p></p>
+<p></p>
 :)
