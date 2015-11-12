@@ -4,7 +4,7 @@ $parametrosGlobales = array(
     'db' => array(
         'host' => 'localhost',
         'usuario' => 'login_atilio',
-        'passwd' => 'qepucn498vcn3s',
+        'passwd' => 'yo06yo12',
         'db' => 'login2fac',
     ),
 );
