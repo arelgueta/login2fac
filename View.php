@@ -1,5 +1,5 @@
 <?php
-
+//elementos de la interfaz de usuario
 class View
 {
 

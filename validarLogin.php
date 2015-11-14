@@ -1,7 +1,9 @@
 <?php
+//Valida el Login Usuario + Contraseña
 include_once 'config.php';
-include_once 'funciones.php';
-include_once 'View.php';
+include_once 'funciones.php'; 
+include_once 'View.php';  
+//----asignacion de variables ----
 $usuario = $_POST['user'];
 $clave = sha1($_POST['pass']);
 //imprimir("$usuario : $clave");
@@ -16,6 +18,7 @@ if ($resultado->num_rows < 1)
 }
 else
 {
+    //primer paso de la sesión - el 2º lo dará el token
     session_start(array('cookie_lifetime' => 60 * 3)); //sesion de 3 minutos
     $_SESSION['paso1'] = true;
 //    $vista = new View();

@@ -1,5 +1,5 @@
 <?php
-
+//conexión a DB
 function conectarDB($dbParams)
 {
     $conexion = new mysqli($dbParams['host'], $dbParams['usuario'], $dbParams['passwd'], $dbParams['db']);
@@ -13,7 +13,7 @@ function conectarDB($dbParams)
         return $conexion;
     }
 }
-
+//funcion imprimir variables - para pruebas
 function imprimir($variable)
 {
     echo'<pre>';
