@@ -9,6 +9,6 @@
         <h1>ACCESO CORRECTO</h1>
         <H2>Zona de trabajo</H2>
         <H3> Sesión activa</H3>
-        Este es su espacio de usuario, no olvide cerrar su sesión, en caso contrario, la misma permanecerá activa durante 5 minutos
+        Este es su espacio de usuario, no olvide cerrar su sesión.
         <p></p>
         <a href="logout.php">Cerrar Sesión <?php echo $loguser; ?></a>
