@@ -1,9 +1,10 @@
 # login2fac
 login con factor de doble verificación
 <p></p>
-<a href="http://www.mtiseg.site88.net/">VER FUNCIONAL</a>
-<p></p>
-<a href="http://mtiseg.byethost33.com">OPCION 2 - VER FUNCIONAL</a>
+
+
+<a href="https://2fact.000webhostapp.com/">VER FUNCIONAL</a>
+
 <p></p>
 
 <p>#USO:</p>
